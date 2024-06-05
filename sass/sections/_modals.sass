@@ -1,0 +1,246 @@
+html:has(dialog[open])
+    overflow-y: hidden
+    margin-right: var(--scrollbar-width)
+
+dialog
+    margin: auto
+    &::backdrop
+        position: fixed
+        inset: 0px
+        background: rgba(0,0,0,.75)
+    &::-webkit-scrollbar
+        width: 0
+        height: 0
+
+[data-modal-name=fortune]
+    width: 100%
+    height: 100%
+    max-width: 100%
+    max-height: 100%
+    background-color: transparent
+    display: grid
+    align-items: center
+    justify-items: center
+
+    div.container
+        position: relative
+        display: grid
+        grid-template-columns: max-content 360px
+        background-color: white
+        max-width: 100%
+        border-radius: 24px
+        overflow: hidden
+        +screen(m)
+            grid-template-columns: 1fr
+
+    div.cross
+        cursor: pointer
+        position: absolute
+        top: 20px
+        right: 20px
+        z-index: 10
+        opacity: 0.5
+        &:hover
+            opacity: 1
+        svg path
+            stroke: black
+
+    div.deal-wheel
+        --size: clamp(300px, calc(80vmin - 360px), 700px)
+        position: relative 
+        display: grid 
+        grid-gap: calc(var(--size) / 20)
+        align-items: center
+        justify-content: center
+        grid-template-areas: "spinner" "trigger" 
+        font-size: calc(var(--size) / 24) 
+        padding: 60px
+        background-color: #eeeff0
+        +screen(m)
+            padding: 30px
+        & > * 
+            grid-area: spinner
+        button.btn-spin 
+            grid-area: trigger 
+            justify-self: center 
+        &.is-spinning 
+            ul.spinner 
+                transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1) 
+            div.ticker 
+                animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1) 
+
+    ul.spinner 
+        position: relative 
+        display: grid 
+        align-items: center 
+        grid-template-areas: "spinner" 
+        width: var(--size) 
+        height: var(--size) 
+        transform: rotate(calc(var(--rotate, 25) * 1deg))
+        border-radius: 50% 
+        filter: drop-shadow(2px 2px 50px rgba(30, 27, 70, 0.3))
+        * 
+            grid-area: spinner
+
+    ul.stoppers 
+        position: relative
+        display: grid 
+        align-items: center 
+        grid-template-areas: "stopper" 
+        width: var(--size) 
+        height: var(--size) 
+        transform: rotate(15deg)
+        border-radius: 50%
+        pointer-events: none
+        * 
+            grid-area: stopper
+            width: 100%
+            height: 100%
+            
+            &::after
+                content: ''
+                position: absolute
+                display: block
+                top: 10px
+                left: 50%
+                width: calc(var(--size) / 75)
+                height: calc(var(--size) / 75)
+                border-radius: 999px
+                background-color: white
+                transform: translateX(-50%)
+                filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3))
+
+    li.prize 
+        display: flex 
+        align-items: center 
+        padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 100) 
+        width: 50%
+        height: 50%
+        transform-origin: center right 
+        transform: rotate(var(--rotate)) 
+        user-select: none
+        &.selected 
+            span.text
+                color: white
+
+        span.text
+            color: white
+            text-transform: uppercase
+            font-weight: 600
+            writing-mode: vertical-lr
+            transform: rotate(180deg)
+            margin-left: calc(var(--size) / 50)
+
+    div.ticker 
+        position: relative
+        left: calc(var(--size) / -15)
+        width: calc(var(--size) / 10)
+        height: calc(var(--size) / 20)
+        background: #313036
+        z-index: 1 
+        clip-path: polygon(20% 0, 100% 50%, 20% 100%, 0% 50%) 
+        transform-origin: center left 
+
+    button.btn-spin 
+        color: white 
+        background: #f03b3b 
+        font-size: 18px 
+        padding: 0.9rem 2rem 1rem 
+        border-radius: 0.5rem 
+        cursor: pointer 
+        &:disabled 
+            pointer-events: none
+            opacity: 0.25 
+    
+    div.form
+        display: grid
+        align-content: center
+        justify-items: center
+        position: relative
+        width: 100%
+        height: 100%
+        background-color: white
+        border-radius: 24px
+        padding: 30px
+        box-sizing: border-box
+        z-index: 2
+        +screen(m)
+            max-width: unset
+
+        div.text
+            display: grid
+            grid-gap: 10px
+            text-align: center
+            margin-bottom: 30px
+            h3
+                font-size: 24px
+                line-height: 29px
+                font-weight: 700
+                color: #0f1f23
+                text-align: center
+                margin-bottom: 20px
+            span
+                font-size: 15px
+                opacity: 0.7
+
+        div.gift
+            grid-gap: 10px
+            margin-bottom: 30px
+            width: 100%
+            text-align: center
+            display: none
+            span
+                opacity: 0.3
+            strong
+                font-weight: 900
+                font-size: 48px
+                color: #f03b3b
+                text-transform: uppercase
+            &.opened
+                display: grid
+
+        form
+            display: grid
+            grid-gap: 10px
+            width: 100%
+            max-width: 320px
+
+            input
+                appearance: none
+                font-size: 15px
+                line-height: 18px
+                border-radius: 4px
+                border: unset
+                padding: 11px
+                border: 1px solid #E3E9EB
+                transition: all .2s
+                &::placeholder
+                    color: #C5CDCF
+                &:hover
+                    border: 1px solid #abb7bb
+                &:focus
+                    border: 1px solid #616769
+
+            button
+                cursor: pointer
+                font-size: 15px
+                line-height: 18px
+                border-radius: 4px
+                border: unset
+                padding: 11px
+                transition: all .2s
+                &.red
+                    background-color: #f03b3b
+                    color: white
+                    &:hover
+                        background-color: #e72222
+                &.gray
+                    background-color: #F8F0F0
+                    color: #BCB7B7
+                    &:hover
+                        background-color: #ece4e4
+                        color: #7e7979
+
+    @keyframes tick 
+        40%
+            transform: rotate(-12deg)

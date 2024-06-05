@@ -1,0 +1,868 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  margin: unset;
+  padding: unset;
+  outline: unset;
+  border: unset;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  font-variant-numeric: lining-nums;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+select,
+button {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder, button::-webkit-input-placeholder {
+  color: inherit;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, button::-moz-placeholder {
+  color: inherit;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder, select:-ms-input-placeholder, button:-ms-input-placeholder {
+  color: inherit;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder, select::-ms-input-placeholder, button::-ms-input-placeholder {
+  color: inherit;
+}
+input::placeholder,
+textarea::placeholder,
+select::placeholder,
+button::placeholder {
+  color: inherit;
+}
+input option,
+textarea option,
+select option,
+button option {
+  background-color: inherit;
+}
+
+input, textarea, label {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  resize: none;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, label::-webkit-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, label::-moz-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder, label:-ms-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder, label::-ms-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::placeholder, textarea::placeholder, label::placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+  font-style: italic;
+}
+
+:root {
+  --gap: 30px;
+  --full: minmax(var(--gap), 1fr);
+  --content: min(1280px, 100% - var(--gap) * 2);
+  --breakout: minmax(0, 190px);
+}
+
+html, body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  overflow-x: clip;
+}
+
+section, header, footer {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: [full-start] var(--full) [breakout-start] var(--breakout) [content-start] var(--content) [content-end] var(--breakout) [breakout-end] var(--full) [full-end];
+}
+section > *, header > *, footer > * {
+  grid-column: content;
+}
+section .full, header .full, footer .full {
+  grid-column: full;
+}
+section .breakout, header .breakout, footer .breakout {
+  grid-column: breakout;
+}
+
+fieldset.text,
+fieldset.number,
+fieldset.textarea {
+  position: relative;
+  line-height: 1em;
+}
+fieldset.text input, fieldset.text textarea,
+fieldset.number input,
+fieldset.number textarea,
+fieldset.textarea input,
+fieldset.textarea textarea {
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+fieldset.text input::-webkit-input-placeholder, fieldset.text textarea::-webkit-input-placeholder, fieldset.number input::-webkit-input-placeholder, fieldset.number textarea::-webkit-input-placeholder, fieldset.textarea input::-webkit-input-placeholder, fieldset.textarea textarea::-webkit-input-placeholder {
+  opacity: 0;
+}
+fieldset.text input::-moz-placeholder, fieldset.text textarea::-moz-placeholder, fieldset.number input::-moz-placeholder, fieldset.number textarea::-moz-placeholder, fieldset.textarea input::-moz-placeholder, fieldset.textarea textarea::-moz-placeholder {
+  opacity: 0;
+}
+fieldset.text input:-ms-input-placeholder, fieldset.text textarea:-ms-input-placeholder, fieldset.number input:-ms-input-placeholder, fieldset.number textarea:-ms-input-placeholder, fieldset.textarea input:-ms-input-placeholder, fieldset.textarea textarea:-ms-input-placeholder {
+  opacity: 0;
+}
+fieldset.text input::-ms-input-placeholder, fieldset.text textarea::-ms-input-placeholder, fieldset.number input::-ms-input-placeholder, fieldset.number textarea::-ms-input-placeholder, fieldset.textarea input::-ms-input-placeholder, fieldset.textarea textarea::-ms-input-placeholder {
+  opacity: 0;
+}
+fieldset.text input::placeholder, fieldset.text textarea::placeholder,
+fieldset.number input::placeholder,
+fieldset.number textarea::placeholder,
+fieldset.textarea input::placeholder,
+fieldset.textarea textarea::placeholder {
+  opacity: 0;
+}
+fieldset.text input[required] + label::after, fieldset.text textarea[required] + label::after,
+fieldset.number input[required] + label::after,
+fieldset.number textarea[required] + label::after,
+fieldset.textarea input[required] + label::after,
+fieldset.textarea textarea[required] + label::after {
+  content: " *";
+  color: red;
+}
+fieldset.text input:focus, fieldset.text textarea:focus,
+fieldset.number input:focus,
+fieldset.number textarea:focus,
+fieldset.textarea input:focus,
+fieldset.textarea textarea:focus {
+  border-color: blue;
+}
+fieldset.text input:focus + label, fieldset.text textarea:focus + label,
+fieldset.number input:focus + label,
+fieldset.number textarea:focus + label,
+fieldset.textarea input:focus + label,
+fieldset.textarea textarea:focus + label {
+  top: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 12px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+  background-color: #f5f5f5;
+  color: blue;
+}
+fieldset.text input:not(:-moz-placeholder-shown) + label, fieldset.text textarea:not(:-moz-placeholder-shown) + label, fieldset.number input:not(:-moz-placeholder-shown) + label, fieldset.number textarea:not(:-moz-placeholder-shown) + label, fieldset.textarea input:not(:-moz-placeholder-shown) + label, fieldset.textarea textarea:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+  transform-origin: left center;
+  background-color: #f5f5f5;
+}
+fieldset.text input:not(:-ms-input-placeholder) + label, fieldset.text textarea:not(:-ms-input-placeholder) + label, fieldset.number input:not(:-ms-input-placeholder) + label, fieldset.number textarea:not(:-ms-input-placeholder) + label, fieldset.textarea input:not(:-ms-input-placeholder) + label, fieldset.textarea textarea:not(:-ms-input-placeholder) + label {
+  top: 0;
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  font-size: 12px;
+  -ms-transform-origin: left center;
+      transform-origin: left center;
+  background-color: #f5f5f5;
+}
+fieldset.text input:not(:placeholder-shown) + label, fieldset.text textarea:not(:placeholder-shown) + label,
+fieldset.number input:not(:placeholder-shown) + label,
+fieldset.number textarea:not(:placeholder-shown) + label,
+fieldset.textarea input:not(:placeholder-shown) + label,
+fieldset.textarea textarea:not(:placeholder-shown) + label {
+  top: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 12px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+  background-color: #f5f5f5;
+}
+fieldset.text input:not(:focus):not(:-moz-placeholder-shown):invalid, fieldset.text textarea:not(:focus):not(:-moz-placeholder-shown):invalid, fieldset.number input:not(:focus):not(:-moz-placeholder-shown):invalid, fieldset.number textarea:not(:focus):not(:-moz-placeholder-shown):invalid, fieldset.textarea input:not(:focus):not(:-moz-placeholder-shown):invalid, fieldset.textarea textarea:not(:focus):not(:-moz-placeholder-shown):invalid {
+  border-color: red;
+}
+fieldset.text input:not(:focus):not(:-ms-input-placeholder):invalid, fieldset.text textarea:not(:focus):not(:-ms-input-placeholder):invalid, fieldset.number input:not(:focus):not(:-ms-input-placeholder):invalid, fieldset.number textarea:not(:focus):not(:-ms-input-placeholder):invalid, fieldset.textarea input:not(:focus):not(:-ms-input-placeholder):invalid, fieldset.textarea textarea:not(:focus):not(:-ms-input-placeholder):invalid {
+  border-color: red;
+}
+fieldset.text input:not(:focus):not(:placeholder-shown):invalid, fieldset.text textarea:not(:focus):not(:placeholder-shown):invalid,
+fieldset.number input:not(:focus):not(:placeholder-shown):invalid,
+fieldset.number textarea:not(:focus):not(:placeholder-shown):invalid,
+fieldset.textarea input:not(:focus):not(:placeholder-shown):invalid,
+fieldset.textarea textarea:not(:focus):not(:placeholder-shown):invalid {
+  border-color: red;
+}
+fieldset.text input:not(:focus):not(:-moz-placeholder-shown):invalid + label, fieldset.text textarea:not(:focus):not(:-moz-placeholder-shown):invalid + label, fieldset.number input:not(:focus):not(:-moz-placeholder-shown):invalid + label, fieldset.number textarea:not(:focus):not(:-moz-placeholder-shown):invalid + label, fieldset.textarea input:not(:focus):not(:-moz-placeholder-shown):invalid + label, fieldset.textarea textarea:not(:focus):not(:-moz-placeholder-shown):invalid + label {
+  color: red;
+}
+fieldset.text input:not(:focus):not(:-ms-input-placeholder):invalid + label, fieldset.text textarea:not(:focus):not(:-ms-input-placeholder):invalid + label, fieldset.number input:not(:focus):not(:-ms-input-placeholder):invalid + label, fieldset.number textarea:not(:focus):not(:-ms-input-placeholder):invalid + label, fieldset.textarea input:not(:focus):not(:-ms-input-placeholder):invalid + label, fieldset.textarea textarea:not(:focus):not(:-ms-input-placeholder):invalid + label {
+  color: red;
+}
+fieldset.text input:not(:focus):not(:placeholder-shown):invalid + label, fieldset.text textarea:not(:focus):not(:placeholder-shown):invalid + label,
+fieldset.number input:not(:focus):not(:placeholder-shown):invalid + label,
+fieldset.number textarea:not(:focus):not(:placeholder-shown):invalid + label,
+fieldset.textarea input:not(:focus):not(:placeholder-shown):invalid + label,
+fieldset.textarea textarea:not(:focus):not(:placeholder-shown):invalid + label {
+  color: red;
+}
+fieldset.text label,
+fieldset.number label,
+fieldset.textarea label {
+  position: absolute;
+  top: calc(10px + 0.1em);
+  left: 15px;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+fieldset.text.textarea label,
+fieldset.number.textarea label,
+fieldset.textarea.textarea label {
+  top: 10px;
+}
+
+fieldset.select {
+  position: relative;
+  line-height: 1.2em;
+  z-index: 1;
+}
+fieldset.select:hover {
+  z-index: 2;
+}
+fieldset.select div.current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+fieldset.select div.current input {
+  display: none;
+}
+fieldset.select div.current input:checked + span {
+  display: block;
+}
+fieldset.select div.current span {
+  display: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 100%;
+}
+fieldset.select div.current img {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+fieldset.select div.current:focus {
+  pointer-events: none;
+}
+fieldset.select div.current:focus span {
+  background-color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+fieldset.select div.current:focus img {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+      -ms-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+fieldset.select div.current:focus + div.list {
+  opacity: 1;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+fieldset.select div.list {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  opacity: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: unset;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-animation-name: hideList;
+          animation-name: hideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+}
+fieldset.select div.list label {
+  cursor: pointer;
+  display: block;
+  padding: 10px 15px;
+  background-color: white;
+}
+fieldset.select div.list label:hover, fieldset.select div.list label:focus {
+  background-color: #f5f5f5;
+}
+@-webkit-keyframes hideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+@keyframes hideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+fieldset.checkbox {
+  font-size: 14px;
+  line-height: 1.4em;
+}
+fieldset.checkbox label input {
+  display: none;
+}
+fieldset.checkbox label input:checked + span:before {
+  background-color: blue;
+  border-color: blue;
+}
+fieldset.checkbox label input:checked + span::after {
+  display: block;
+}
+fieldset.checkbox label span {
+  position: relative;
+  display: block;
+  padding-left: 28px;
+  color: gray;
+}
+fieldset.checkbox label span::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 2px;
+}
+fieldset.checkbox label span::after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0.6em;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-image: url(../images/checbox_tick.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+fieldset.radio {
+  line-height: 1.4em;
+}
+fieldset.radio label input {
+  display: none;
+}
+fieldset.radio label input:checked + span {
+  color: black;
+}
+fieldset.radio label input:checked + span:before {
+  background-color: blue;
+  border-color: blue;
+}
+fieldset.radio label input:checked + span::after {
+  display: block;
+}
+fieldset.radio label span {
+  position: relative;
+  display: block;
+  padding-left: 28px;
+  color: gray;
+}
+fieldset.radio label span::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 999px;
+}
+fieldset.radio label span::after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0.6em;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: white;
+  border-radius: 999px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 15px;
+  background-color: orange;
+  line-height: 1em;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 10px;
+}
+
+html:has(dialog[open]) {
+  overflow-y: hidden;
+  margin-right: var(--scrollbar-width);
+}
+
+dialog {
+  margin: auto;
+}
+dialog::-ms-backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.75);
+}
+dialog::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.75);
+}
+dialog::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+[data-modal-name=fortune] {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: transparent;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+[data-modal-name=fortune] div.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: -webkit-max-content 360px;
+  grid-template-columns: max-content 360px;
+  background-color: white;
+  max-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+@media (max-width: 960px) {
+  [data-modal-name=fortune] div.container {
+    grid-template-columns: 1fr;
+  }
+}
+[data-modal-name=fortune] div.cross {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  opacity: 0.5;
+}
+[data-modal-name=fortune] div.cross:hover {
+  opacity: 1;
+}
+[data-modal-name=fortune] div.cross svg path {
+  stroke: black;
+}
+[data-modal-name=fortune] div.deal-wheel {
+  --size: clamp(300px, calc(80vmin - 360px), 700px);
+  position: relative;
+  display: grid;
+  grid-gap: calc(var(--size) / 20);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-areas: "spinner" "trigger";
+  font-size: calc(var(--size) / 24);
+  padding: 60px;
+  background-color: #eeeff0;
+}
+@media (max-width: 960px) {
+  [data-modal-name=fortune] div.deal-wheel {
+    padding: 30px;
+  }
+}
+[data-modal-name=fortune] div.deal-wheel > * {
+  grid-area: spinner;
+}
+[data-modal-name=fortune] div.deal-wheel button.btn-spin {
+  grid-area: trigger;
+  justify-self: center;
+}
+[data-modal-name=fortune] div.deal-wheel.is-spinning ul.spinner {
+  -webkit-transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1), -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+}
+[data-modal-name=fortune] div.deal-wheel.is-spinning div.ticker {
+  -webkit-animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-modal-name=fortune] ul.spinner {
+  position: relative;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-areas: "spinner";
+  width: var(--size);
+  height: var(--size);
+  -webkit-transform: rotate(calc(var(--rotate, 25) * 1deg));
+      -ms-transform: rotate(calc(var(--rotate, 25) * 1deg));
+          transform: rotate(calc(var(--rotate, 25) * 1deg));
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(2px 2px 50px rgba(30, 27, 70, 0.3));
+          filter: drop-shadow(2px 2px 50px rgba(30, 27, 70, 0.3));
+}
+[data-modal-name=fortune] ul.spinner * {
+  grid-area: spinner;
+}
+[data-modal-name=fortune] ul.stoppers {
+  position: relative;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-areas: "stopper";
+  width: var(--size);
+  height: var(--size);
+  -webkit-transform: rotate(15deg);
+      -ms-transform: rotate(15deg);
+          transform: rotate(15deg);
+  border-radius: 50%;
+  pointer-events: none;
+}
+[data-modal-name=fortune] ul.stoppers * {
+  grid-area: stopper;
+  width: 100%;
+  height: 100%;
+}
+[data-modal-name=fortune] ul.stoppers *::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 10px;
+  left: 50%;
+  width: calc(var(--size) / 75);
+  height: calc(var(--size) / 75);
+  border-radius: 999px;
+  background-color: white;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+[data-modal-name=fortune] li.prize {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 100);
+  width: 50%;
+  height: 50%;
+  -webkit-transform-origin: center right;
+      -ms-transform-origin: center right;
+          transform-origin: center right;
+  -webkit-transform: rotate(var(--rotate));
+      -ms-transform: rotate(var(--rotate));
+          transform: rotate(var(--rotate));
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+[data-modal-name=fortune] li.prize.selected span.text {
+  color: white;
+}
+[data-modal-name=fortune] li.prize span.text {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin-left: calc(var(--size) / 50);
+}
+[data-modal-name=fortune] div.ticker {
+  position: relative;
+  left: calc(var(--size) / -15);
+  width: calc(var(--size) / 10);
+  height: calc(var(--size) / 20);
+  background: #313036;
+  z-index: 1;
+  -webkit-clip-path: polygon(20% 0, 100% 50%, 20% 100%, 0% 50%);
+          clip-path: polygon(20% 0, 100% 50%, 20% 100%, 0% 50%);
+  -webkit-transform-origin: center left;
+      -ms-transform-origin: center left;
+          transform-origin: center left;
+}
+[data-modal-name=fortune] button.btn-spin {
+  color: white;
+  background: #f03b3b;
+  font-size: 18px;
+  padding: 0.9rem 2rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+[data-modal-name=fortune] button.btn-spin:disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+[data-modal-name=fortune] div.form {
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 24px;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 2;
+}
+@media (max-width: 960px) {
+  [data-modal-name=fortune] div.form {
+    max-width: unset;
+  }
+}
+[data-modal-name=fortune] div.form div.text {
+  display: grid;
+  grid-gap: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+[data-modal-name=fortune] div.form div.text h3 {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: #0f1f23;
+  text-align: center;
+  margin-bottom: 20px;
+}
+[data-modal-name=fortune] div.form div.text span {
+  font-size: 15px;
+  opacity: 0.7;
+}
+[data-modal-name=fortune] div.form div.gift {
+  grid-gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+[data-modal-name=fortune] div.form div.gift span {
+  opacity: 0.3;
+}
+[data-modal-name=fortune] div.form div.gift strong {
+  font-weight: 900;
+  font-size: 48px;
+  color: #f03b3b;
+  text-transform: uppercase;
+}
+[data-modal-name=fortune] div.form div.gift.opened {
+  display: grid;
+}
+[data-modal-name=fortune] div.form form {
+  display: grid;
+  grid-gap: 10px;
+  width: 100%;
+  max-width: 320px;
+}
+[data-modal-name=fortune] div.form form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 15px;
+  line-height: 18px;
+  border-radius: 4px;
+  border: unset;
+  padding: 11px;
+  border: 1px solid #E3E9EB;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+[data-modal-name=fortune] div.form form input::-webkit-input-placeholder {
+  color: #C5CDCF;
+}
+[data-modal-name=fortune] div.form form input::-moz-placeholder {
+  color: #C5CDCF;
+}
+[data-modal-name=fortune] div.form form input:-ms-input-placeholder {
+  color: #C5CDCF;
+}
+[data-modal-name=fortune] div.form form input::-ms-input-placeholder {
+  color: #C5CDCF;
+}
+[data-modal-name=fortune] div.form form input::placeholder {
+  color: #C5CDCF;
+}
+[data-modal-name=fortune] div.form form input:hover {
+  border: 1px solid #abb7bb;
+}
+[data-modal-name=fortune] div.form form input:focus {
+  border: 1px solid #616769;
+}
+[data-modal-name=fortune] div.form form button {
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 18px;
+  border-radius: 4px;
+  border: unset;
+  padding: 11px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+[data-modal-name=fortune] div.form form button.red {
+  background-color: #f03b3b;
+  color: white;
+}
+[data-modal-name=fortune] div.form form button.red:hover {
+  background-color: #e72222;
+}
+[data-modal-name=fortune] div.form form button.gray {
+  background-color: #F8F0F0;
+  color: #BCB7B7;
+}
+[data-modal-name=fortune] div.form form button.gray:hover {
+  background-color: #ece4e4;
+  color: #7e7979;
+}
+@-webkit-keyframes tick {
+  40% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+}
+@keyframes tick {
+  40% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+}/*# sourceMappingURL=common.css.map */

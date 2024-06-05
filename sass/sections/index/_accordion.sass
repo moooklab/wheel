@@ -1,0 +1,22 @@
+section.accordion
+    margin-top: var(--section-between-gap)
+    margin-bottom: var(--section-between-gap)
+
+    div.container
+        display: grid
+        grid-gap: 30px
+
+    div.accordion
+        user-select: none
+        &.open
+            & > div.accordion_content
+                padding: 1rem
+
+        div.accordion_caption
+            cursor: pointer
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+            padding: .5rem 1rem
+
+        div.accordion_content
+            background-color: #eeeeee
+            padding: 0 1rem

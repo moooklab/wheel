@@ -1,0 +1,29 @@
+section.slider
+    margin-top: var(--section-between-gap)
+    margin-bottom: var(--section-between-gap)
+
+    div.container
+        display: grid
+        grid-gap: 30px
+
+    div.slider
+        width: 100%
+        min-width: 0
+
+    div.tabs_captions
+        display: flex
+        gap: var(--section-side-gap)
+        border-bottom: 1px solid #b1b1b1
+        div.swiper-slide
+            z-index: 999
+            margin-bottom: -1px
+            padding: .5em 1em
+            cursor: pointer
+            width: auto
+            &.swiper-slide-thumb-active
+                color: red
+
+    div.tabs_contents
+        div.swiper-slide
+            padding: var(--section-side-gap)
+            background-color: #eeeeee

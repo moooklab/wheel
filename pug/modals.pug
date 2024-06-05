@@ -1,0 +1,25 @@
+dialog(data-modal-name="fortune")
+    div.container
+
+        div(data-modal-close).cross
+            include ../images/cross.svg
+        
+        div.deal-wheel
+            ul.spinner
+                ul.stoppers
+            div.ticker
+            button.btn-spin Крутить
+
+        div.form
+            div.text
+                h3 Разнообразный и богатый опыт
+                span Повседневная практика показывает, что граница обучения кадров позволяет оценить значение.
+            div.gift
+                span Ваш подарок
+                strong Не выбран 
+
+            form
+                input(type="text", placeholder="Имя")
+                input(type="tel", placeholder="+7 (...) ... —..—.. ")
+                button.red Оставить заявку
+                button(data-modal-close).gray Отменить

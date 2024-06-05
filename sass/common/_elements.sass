@@ -1,0 +1,222 @@
+$width_gap: 15px
+$height_gap: 10px
+
+
+
+fieldset.text,
+fieldset.number,
+fieldset.textarea
+    position: relative
+    line-height: 1em
+    input, textarea
+        padding: $height_gap $width_gap
+        width: 100%
+        border-radius: 5px
+        border: 1px solid rgba(0,0,0,.1)
+        &::placeholder
+            opacity: 0
+        // Для обязательного поля
+        &[required]
+            & + label
+                &::after
+                    content: ' *'
+                    color: red
+        
+        // Для поля в фокусе
+        &:focus
+            border-color: blue
+            & + label
+                top: 0
+                transform: translateY(-50%)
+                font-size: 12px
+                transform-origin: left center
+                background-color: #f5f5f5
+                color: blue
+        
+        // Для заполненого поля
+        &:not(:placeholder-shown)
+            & + label
+                top: 0
+                transform: translateY(-50%)
+                font-size: 12px
+                transform-origin: left center
+                background-color: #f5f5f5
+
+        // Для поля с ошибкой
+        &:not(:focus):not(:placeholder-shown):invalid
+            border-color: red
+            & + label
+                color: red
+    label
+        position: absolute
+        top: calc($height_gap + .1em)
+        left: $width_gap
+        pointer-events: none
+        color: rgba(0,0,0,.25)
+        transition: all .2s
+    &.textarea
+        label
+            top: $height_gap
+
+fieldset.select
+    position: relative
+    line-height: 1.2em
+    z-index: 1
+    &:hover
+        z-index: 2
+    div.current
+        position: relative
+        cursor: pointer
+        outline: none
+        input
+            display: none
+            &:checked
+                & + span
+                    display: block
+        span
+            display: none
+            border: 1px solid rgba(0,0,0,.1)
+            border-radius: 5px
+            padding: $height_gap $width_gap
+            width: 100%
+        img
+            position: absolute
+            top: 50%
+            right: $width_gap
+            transform: translateY(-50%)
+            transition: transform .2s
+        &:focus
+            pointer-events: none
+            span
+                background-color: white
+                border-bottom-left-radius: 0
+                border-bottom-right-radius: 0
+            img
+                transform: translateY(-50%) rotate(180deg)
+            & + div.list
+                opacity: 1
+                animation-name: none
+    div.list
+        display: block
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        height: max-content
+        opacity: 0
+        border: 1px solid rgba(0,0,0,.1)
+        border-top: unset
+        border-bottom-left-radius: 5px
+        border-bottom-right-radius: 5px
+        animation-name: hideList
+        animation-duration: 0.5s
+        animation-delay: 0.5s
+        animation-fill-mode: forwards
+        animation-timing-function: step-start
+        label
+            cursor: pointer
+            display: block
+            padding: $height_gap $width_gap
+            background-color: white
+            &:hover, &:focus
+                background-color: #f5f5f5
+
+    @keyframes hideList
+        from
+            transform: scaleY(1)
+        to
+            transform: scaleY(0)
+
+fieldset.checkbox
+    font-size: 14px
+    line-height: 1.4em
+    label
+        input
+            display: none
+            &:checked + span
+                &:before
+                    background-color: blue
+                    border-color: blue
+                &::after
+                    display: block
+        span
+            position: relative
+            display: block
+            padding-left: 28px
+            color: gray
+        span::before
+            content: ''
+            position: absolute
+            top: .6em
+            left: 0
+            display: block
+            width: 14px
+            height: 14px
+            border: 1px solid rgba(0,0,0,.1)
+            transform: translateY(-50%)
+            border-radius: 2px
+        span::after
+            content: ''
+            display: none
+            position: absolute
+            top: .6em
+            left: 3px
+            width: 10px
+            height: 10px
+            transform: translateY(-50%)
+            background-image: url(../images/checbox_tick.svg)
+            background-position: center center
+            background-repeat: no-repeat
+            background-size: contain
+
+fieldset.radio
+    line-height: 1.4em
+    label
+        input
+            display: none
+            &:checked + span
+                color: black
+                &:before
+                    background-color: blue
+                    border-color: blue
+                &::after
+                    display: block
+        span
+            position: relative
+            display: block
+            padding-left: 28px
+            color: gray
+        span::before
+            content: ''
+            position: absolute
+            top: .6em
+            left: 0
+            display: block
+            width: 14px
+            height: 14px
+            border: 1px solid rgba(0,0,0,.1)
+            transform: translateY(-50%)
+            border-radius: 999px
+        span::after
+            content: ''
+            display: none
+            position: absolute
+            top: .6em
+            left: 4px
+            width: 8px
+            height: 8px
+            transform: translateY(-50%)
+            background-color: white
+            border-radius: 999px
+
+button
+    border-radius: 5px
+    padding: $width_gap
+    background-color: orange
+    line-height: 1em
+    display: grid
+    align-items: center
+    grid-auto-flow: column
+    grid-auto-columns: max-content
+    justify-content: center
+    grid-gap: 10px

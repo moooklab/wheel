@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap')
+    
+\:root
+    --gap: 30px
+    --full: minmax(var(--gap), 1fr)
+    --content: min(#{$content-maxwidth}, 100% - var(--gap) * 2)
+    --breakout: minmax(0, 190px)
+    
+html, body
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    line-height: 24px
+    text-size-adjust: 100%
+    scroll-behavior: smooth
+    appearance: none
+    overflow-x: clip
+
+section, header, footer
+    width: 100%
+    position: relative
+    display: grid
+    grid-template-columns: [full-start] var(--full) [breakout-start] var(--breakout) [content-start] var(--content) [content-end] var(--breakout) [breakout-end] var(--full) [full-end]
+    & > *
+        grid-column: content
+    .full
+        grid-column: full
+    .breakout
+        grid-column: breakout
