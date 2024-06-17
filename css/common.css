@@ -395,15 +395,32 @@ fieldset.select div.list label:hover, fieldset.select div.list label:focus {
 }
 
 fieldset.checkbox {
-  font-size: 14px;
-  line-height: 1.4em;
+  font-size: 12px;
+  line-height: 140%;
+  color: rgba(0, 0, 0, 0.5);
+}
+fieldset.checkbox a {
+  color: #f03b3b;
+  text-decoration: underline;
+}
+fieldset.checkbox a:hover {
+  text-decoration: none;
+}
+fieldset.checkbox label {
+  position: relative;
 }
 fieldset.checkbox label input {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
 }
 fieldset.checkbox label input:checked + span:before {
-  background-color: blue;
-  border-color: blue;
+  background-color: #f03b3b;
+  border-color: #f03b3b;
 }
 fieldset.checkbox label input:checked + span::after {
   display: block;
@@ -412,12 +429,11 @@ fieldset.checkbox label span {
   position: relative;
   display: block;
   padding-left: 28px;
-  color: gray;
 }
 fieldset.checkbox label span::before {
   content: "";
   position: absolute;
-  top: 0.6em;
+  top: 0.7em;
   left: 0;
   display: block;
   width: 14px;
@@ -432,7 +448,7 @@ fieldset.checkbox label span::after {
   content: "";
   display: none;
   position: absolute;
-  top: 0.6em;
+  top: 0.7em;
   left: 3px;
   width: 10px;
   height: 10px;

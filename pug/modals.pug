@@ -12,14 +12,20 @@ dialog(data-modal-name="fortune")
 
         div.form
             div.text
-                h3 Разнообразный и богатый опыт
-                span Повседневная практика показывает, что граница обучения кадров позволяет оценить значение.
+                h3 БАРАБАН УДАЧИ, НАКРУТИ СЕБЕ СКИДКУ
+                //- span Повседневная практика показывает, что граница обучения кадров позволяет оценить значение.
             div.gift
                 span Ваш подарок
                 strong Не выбран 
 
             form
-                input(type="text", placeholder="Имя")
-                input(type="tel", placeholder="+7 (...) ... —..—.. ")
+                input(type="text", placeholder="Имя", required)
+                input(type="tel", placeholder="+7 (...) ... —..—.. ", required)
+
+                fieldset.checkbox
+                    label
+                        input(type="checkbox", value="check", required)
+                        span я даю согласие на обработку #[a(href="index.html") персональных данных]. Отправляя эти данные я подтверждаю правильность заполнения данных
+
                 button.red Оставить заявку
                 button(data-modal-close).gray Отменить
